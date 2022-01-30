@@ -30,7 +30,7 @@ export namespace CovidService {
 
     export function fetchIntensivRegisterApi(): Promise<any> {
         return new Promise((resolve, reject) => {
-            const filePath = process.env.FILE_PATH + "/intesivregister_" + new Date().toLocaleDateString("de-DE").replace(/\./g, "-") + ".json";
+            const filePath = process.env.FILE_PATH + "/intensivregister_" + new Date().toLocaleDateString("de-DE").replace(/\./g, "-") + ".json";
             axios.get("https://www.intensivregister.de/api/public/reporting/laendertabelle").then((response) => {
                 const data = JSON.stringify(response.data);
                 if(fs.existsSync(filePath)) {

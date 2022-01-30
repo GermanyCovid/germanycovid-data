@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 dotenv.config();
 import fs from "fs";
-import { CovidService } from "./service/covid.service";
+import { CovidService } from "./service/data.service";
 import { LogService } from "./service/log.service";
 
 if (!fs.existsSync(process.env.FILE_PATH)) fs.mkdirSync(process.env.FILE_PATH, { recursive: true });
