@@ -8,7 +8,7 @@ export namespace CovidService {
     export function fetchCoronaZahlenApi(router: "germany" | "vaccinations" | "vaccinations/history/7"): Promise<any> {
         return new Promise((resolve, reject) => {
             const filePath = process.env.FILE_PATH + "/" + router.replace(new RegExp("/", "g"), "-") + "_" + new Date().toLocaleDateString("de-DE").replace(/\./g, "-") + ".json";
-            axios.get("https://rki.germanycovid.de/" + router).then((response) => {
+            axios.get("https://api.corona-zahlen.org/" + router).then((response) => {
                 const data = JSON.stringify(response.data);
                 if(fs.existsSync(filePath)) {
                     return fs.readFile(filePath, (err, file) => {
